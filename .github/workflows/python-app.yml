@@ -15,7 +15,7 @@ permissions:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v4
@@ -28,6 +28,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        pip install selenium
+        python -m pip install dash[testing]
         pip install -e .
     - name: Lint with flake8
       run: |
